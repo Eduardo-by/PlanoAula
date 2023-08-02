@@ -1,0 +1,85 @@
+{%extends "base.html" %}
+{%load static%}
+{%block 'titulo'%}{{plano_aula.titulo}}{%endblock%}
+{%block 'conteudo'%}
+<div class="container">
+    <div class="mt-4 row">
+        <div class="text-center">
+            <img class="img-tamanho img-fluid"
+                src="{% if debug %}http://localhost:8000{% endif %}{% static '/img/logo.png' %}" alt="logo">
+        </div>
+    </div>
+    <div class="mt-3 row">
+        <div class="text-center">
+            <p class="text-justify">Ministério da Educação <br>Secretaria de Educação Profissional e Tecnológica
+                <br>Instituto Federal de Educação, Ciência e Tecnologia do Tocantins<br> Campus Araguatins
+            </p>
+        </div>
+    </div>
+    <div class="mt-3 row">
+        <h6 class="text-center">MODELO PLANO DE AULA</h6>
+    </div>
+    <div class="mt-3 row caixa-titulo col-md-7 mx-auto">
+        <h6 class="mt-1 text-justify">PLANO DE AULA:</h6>
+    </div>
+    <div class="row caixa-texto col-md-7 mx-auto">
+        <h6 class="mt-1 text-justify">TEMA:</h6>
+        <label class="mb-1 px-5 text-justify">{{ plano_aula.titulo }}</label>
+
+    </div>
+    <div class="mt-5 row caixa-titulo col-md-7 mx-auto">
+        <h6 class="mt-1 text-justify">OBJETIVOS:</h6>
+    </div>
+    <div class="row caixa-texto col-md-7 mx-auto">
+        <h6 class="mt-1 text-justify">GERAL:</h6>
+        <label class="mb-1 px-5 text-justify">{{ plano_aula.objetivo_geral }}</label>
+    </div>
+    <div class="row caixa-texto col-md-7 mx-auto">
+        <h6 class="mt-1 text-justify">ESPECIFICOS:</h6>
+        <label class="mb-1 px-5 text-justify">{{ plano_aula.objetivos_especificos }}</label>
+    </div>
+    <div class="mt-5 row caixa-titulo col-md-7 mx-auto">
+        <h6 class="mt-1 text-justify">CONTEUDOS:</h6>
+    </div>
+    <div class="row caixa-texto col-md-7 mx-auto">
+        <p class="px-1 text-justify">{{ plano_aula.conteudo }}</p>
+    </div>
+    <div class="mt-5 row caixa-titulo col-md-7 mx-auto">
+        <h6 class="mt-1 text-justify">METODOLOGIA:</h6>
+    </div>
+    <div class="row caixa-texto col-md-7 mx-auto">
+        <label class="px-1 text-justify"> {{ plano_aula.metodologia }}</label>
+    </div>
+    <div class="mt-5 row caixa-titulo col-md-7 mx-auto">
+        <h6 class="mt-1 text-justify">AVALIAÇÃO:</h6>
+    </div>
+    <div class="row caixa-texto col-md-7 mx-auto">
+        <label class="px-1 text-justify">{{ plano_aula.avaliacao }}</label>
+    </div>
+    <div class="mt-5 row caixa-titulo col-md-7 mx-auto">
+        <h6 class="mt-1 text-justify">MATERIAIS:</h6>
+    </div>
+    <div class="row caixa-texto col-md-7 mx-auto">
+        <label class="px-1 text-justify">{{ plano_aula.materiais }}</label>
+    </div>
+    <div class="mt-5 row caixa-titulo col-md-7 mx-auto">
+        <h6 class="mt-1 text-justify">REFERÊNCIAS:</h6>
+    </div>
+    <div class="row caixa-texto col-md-7 mx-auto">
+        <h6 class="mt-1 text-justify">BASICA:</h6>
+        <label class="mb-1 px-5 text-justify">{{ plano_aula.referencias_basicas }}</label>
+    </div>
+    <div class="mb-5 row caixa-texto col-md-7 mx-auto">
+        <h6 class="mt-1 text-justify">COMPLEMENTAR:</h6>
+        <label class="mb-1 px-5 text-justify"> {{ plano_aula.referencias_complementar }}</label>
+    </div>
+    {% if not is_pdf %} <!-- Mostrar botões somente se não for PDF -->
+    <!-- Botões para editar e gerar PDF -->
+    <div class="text-center mb-3">
+        <a href="{% url 'editar_plano_aula' plano_aula.pk %}" class="btn btn-danger">Editar</a>
+        <a href="{% url 'gerar_pdf_plano_aula' plano_aula.pk %}" class="btn btn-info">Gerar PDF</a>
+    </div>
+    {% endif %}
+</div>
+
+{%endblock%}

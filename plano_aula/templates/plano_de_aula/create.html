@@ -1,0 +1,17 @@
+<!-- plano_aula/templates/plano_aula/adicionar_plano_aula.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adicionar Plano de Aula</title>
+</head>
+<body>
+    <h1>Adicionar Plano de Aula</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="{% url 'lista_planos_aula' %}">Voltar para a Lista de Planos de Aula</a>
+</body>
+</html>

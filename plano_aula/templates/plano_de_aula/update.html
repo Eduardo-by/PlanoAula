@@ -1,0 +1,54 @@
+{%extends 'base.html'%}
+{%block 'titulo'%}{{plano_aula.titulo}}{%endblock%}
+{%block 'conteudo'%}
+<div class="mt-5 container">
+    <div class="row mxt-auto col-md-12">
+        <h1 class="text-center">Atualizar Plano de Aula</h1>
+    </div>
+    <div class="row col-md-8 mx-auto">
+        <form method="post">
+            {% csrf_token %}
+            <div class="mt-5 form-group">
+                <label class="mb-3 text-justify" for="{{ form.titulo.id_for_label }}">Título:</label>
+                {{ form.titulo }}
+            </div>
+            <div class="mt-2  form-group">
+                <label class="mb-3 text-justify" for="{{ form.descricao.id_for_label }}">Objetivo geral:</label>
+                {{ form.objetivo_geral }}
+            </div>
+            <div class="mt-2 form-group">
+                <label class="mb-3 text-justify" for="{{ form.objetivos.id_for_label }}">Objetivos especificos:</label>
+                {{ form.objetivos_especificos }}
+            </div>
+            <div class="mt-2 form-group">
+                <label class="mb-3 text-justify" for="{{ form.materiais.id_for_label }}">Conteudo:</label>
+                {{ form.conteudo }}
+            </div>
+            <div class="mt-2 form-group">
+                <label class="mb-3 text-justify" for="{{ form.referencias.id_for_label }}">Metodologia:</label>
+                {{ form.metodologia }}
+            </div>
+            <div class="mt-2 form-group">
+                <label class="mb-3 text-justify" for="{{ form.referencias.id_for_label }}">Avaliacao:</label>
+                {{ form.avaliacao }}
+            </div>
+            <div class="mt-2 form-group">
+                <label class="mb-3 text-justify" for="{{ form.referencias.id_for_label }}">Materiais:</label>
+                {{ form.materiais }}
+            </div>
+            <div class="mt-2 form-group">
+                <label class="mb-3 text-justify" for="{{ form.referencias.id_for_label }}">Referencias Basicas:</label>
+                {{ form.referencias_basicas }}
+            </div>
+            <div class="mt-2 form-group">
+                <label class="mb-3 text-justify" for="{{ form.referencias.id_for_label }}">Referencias
+                    Complementares:</label>
+                {{ form.referencias_complementar }}
+            </div>
+            <div class="mt-5 mb-3 row mx-auto col-md-3">
+                <button class="btn btn-primary" type="submit">Salvar Alterações</button>
+            </div>
+        </form>
+    </div>
+
+    {%endblock%}

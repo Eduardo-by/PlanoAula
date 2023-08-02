@@ -1,0 +1,12 @@
+.img-tamanho{
+    width: 5em;
+    height: 5em;
+}
+.caixa-titulo{
+    background-color: #E0E0E0;
+    border: 0.1em solid black;
+}
+.caixa-texto{
+    border: 0.1em solid black;
+    border-top: 0;
+}
